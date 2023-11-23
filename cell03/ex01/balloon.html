@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>balloon</title>
+		<style>
+			.parent{
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+			.child{
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				top:50%;
+				left:50%;
+				border-radius: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="parent"></div>
+		<div class="child"></div>
+
+		<script>
+			let colorIx = 0;
+			let width = 200;
+			let height = 200;
+			const colors = ['red', 'green', 'blue'];
+			const balloon = document.querySelector(".child");
+			
+			function blowup(){
+	
+				if (colorIx > 1)
+					colorIx = 0;
+				else
+					++colorIx;
+				console.log(colors[colorIx]);
+				if (width >= 420 && height >= 420){
+					width = 200;
+					height = 200;
+				}
+				else{
+					width = width + 10;
+					height += 10;
+				}
+				balloon.style.setProperty("background-color", colors[colorIx]);
+				balloon.style.setProperty("width", width + "px");
+				balloon.style.setProperty("height", height + "px");
+				
+				console.log("width: " + width + " | height: " + height);
+			}
+
+			function reverse(){
+				width = width - 5;
+				height -= 5;
+				if (width <= 200 && height <= 200)
+				{
+					width = 200;
+					height = 200;
+				}
+				balloon.style.setProperty("width", width + "px");
+				balloon.style.setProperty("height", height + "px");
+				console.log("width: " + width + " | heigh: " + height);
+				if (colorIx < 1)
+					colorIx = 2;
+				else
+					--colorIx;
+				balloon.style.setProperty("background-color", colors[colorIx]);
+				console.log(colors[colorIx]);
+			}	
+			balloon.addEventListener("click", blowup);
+			balloon.addEventListener("mouseout", reverse);
+		</script>
+	</body>
+</html>

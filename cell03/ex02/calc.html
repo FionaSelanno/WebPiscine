@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>calc</title>
+	</head>
+	<body>
+		<div></div>
+		<form id="calculator">
+			<label for="leftVal">Left value: </label>
+			<input id="leftVal" type="text" name="leftVal">
+			<label for="operator">Choose operator:</label>
+			<select id = "operator" name="operator">
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+				<option value="%">%</option>
+			</select>
+			<label for="rightVal">Right value: </label>
+			<input id="rightVal" type="text" name="rightVal">
+			<input type="submit" value="Try me!" onclick="calculate()">
+		</form>
+
+		<script>
+			let value;
+			//setInterval repeatedly calls a function 
+			const timer = setInterval(PopUp, 30000);
+
+			function PopUp(){
+				alert("Please, use me...");
+			}
+
+			function performCalculation(left, right, op){
+				if (op == "+")
+					return (left + right);
+				if (op == "-")
+					return (left - right);
+				if (op == "*")
+					return (left * right);
+				if (op == "/")
+				{
+					let res = left / right;
+					if (right == 0){
+						console.log("Result: " + res);
+						alert("It's over 9000!");
+						return NaN; //ret
+					}
+					return (left / right);
+				}
+				if (op == "%")
+				{
+					let res = left % right;
+					if (right == 0){
+						console.log("Result: " + res);
+						alert("It's over 9000!");
+						return NaN;
+					}
+					return (left % right);
+				}	
+			}
+
+			//isNAN checks if a value is NaN you can't do if (val == NAN)
+			//let makes the value a string. Therefor to do calculation you do Number(value)
+			function calculate(){
+				let leftVal = document.getElementById("leftVal").value;
+				let IntLeftVal = parseInt(leftVal);
+				let rightVal = document.getElementById("rightVal").value;
+				let IntRightVal = parseInt(rightVal);
+				const operator= document.getElementById("operator").value;
+				
+				if (isNaN(leftVal) || leftVal < 0)
+					alert("ERROR: " + leftVal + " is a bad value");
+				if (isNaN(rightVal) || rightVal < 0)
+					alert("ERROR: " + rightVal + " is a bad value");
+
+				console.log("leftVal: " + leftVal + " | rightVal: " + rightVal + " | operator: " + operator);
+				
+				value = performCalculation(Number(leftVal), Number(rightVal), operator);
+				if (isNaN(value))
+					return;
+				console.log(value);
+				alert("result: " + value);
+			}
+		</script>
+	</body>
+</html>
+

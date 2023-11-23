@@ -1,0 +1,34 @@
+
+.dropdown{
+	background-color: blue;
+	color:white;
+	padding: 25px;
+	text-align: center;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.dropdown-content{
+	display: none;
+	margin-top:25px;
+
+}
+
+.dropdown:hover .dropdown-content{
+	display: block;
+	text-align: center;
+}
+
+li{
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	list-style-type: none;
+	padding: 25px;
+	overflow: hidden;
+}
+
+li:nth-child(even){
+	background-color: blueviolet;
+}
+
+li:nth-child(odd){
+	background-color: rgb(255, 127, 236);
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>background</title>
+		<link rel="stylesheet" href="backgroound.css">
+	</head>
+	<body id="bd">
+		<button type="button" onclick="changebg()">Change background</button>
+
+	<script>
+		//Math.random return a random floating number between 0 and 1
+		const colors=['violet', 'red', 'green', 'pink', 'black', 'yellow', 'blue']
+		function changebg(){
+			const colorIx= parseInt(Math.random()*colors.length);
+			console.log(colorIx);
+			document.getElementById("bd").style.backgroundColor = colors[colorIx];
+		}
+	</script>
+	</body>
+</html>

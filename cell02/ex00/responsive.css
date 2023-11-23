@@ -1,0 +1,13 @@
+table{
+	width: 100%;
+	height: 100px;
+}
+td{
+	text-align: center;
+}
+td:first-child{
+	background-color:green;
+}
+td:nth-child(2){
+	background-color: red;
+}
