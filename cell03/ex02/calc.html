@@ -68,11 +68,14 @@
 				let IntRightVal = parseInt(rightVal);
 				const operator= document.getElementById("operator").value;
 				
-				if (isNaN(leftVal) || leftVal < 0)
+				if (isNaN(leftVal) || leftVal < 0){
 					alert("ERROR: " + leftVal + " is a bad value");
-				if (isNaN(rightVal) || rightVal < 0)
+					return;
+				}
+				if (isNaN(rightVal) || rightVal < 0){
 					alert("ERROR: " + rightVal + " is a bad value");
-
+					return;
+				}
 				console.log("leftVal: " + leftVal + " | rightVal: " + rightVal + " | operator: " + operator);
 				
 				value = performCalculation(Number(leftVal), Number(rightVal), operator);
