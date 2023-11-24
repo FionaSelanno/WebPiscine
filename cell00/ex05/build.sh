@@ -6,7 +6,5 @@ then
 fi
 
 for arg in $@; do
-	name = ${arg} + "test"
-	echo $name
-	mkdir "$name"
+	mkdir "ex"$arg
 done
